@@ -195,3 +195,193 @@ int main()
 	}
 	return 0; 
 }
+
+// Seleccion ejercicio 1 de la serie 2
+// Jordy Herbert Enrique Cotton Diaz
+#include <iostream>
+using namespace std;
+int a, b, c, d, e, f, g, h, i, j;
+char a1, b1, c1, d1, e1, f1, g1, h1, i1, k1;
+int buscar;
+char buscar_1;
+
+// Función para realizar la búsqueda lineal en un arreglo de letras
+char busquedaLineal_1(char arreglo_1[], char tamano_1, char valorBuscado_1) {
+	for (int a = 0; a < tamano_1; a++) {
+		if (arreglo_1[a] == valorBuscado_1) {
+			return a; // Se encontró el valor, devuelve el índice
+		}
+	}
+	return -1; // No se encontró el valor
+}
+
+
+void seleccion_1(char arr_1[], char n1) {
+	for (int c = 0; c < n1 - 1; c++) {
+		int min_idx1_1 = c;
+		for (int d = c + 1; d < n1; d++) {
+			if (arr_1[d] < arr_1[min_idx1_1]) {    //para que sea menor a mayor
+				min_idx1_1 = b;
+			}
+		}
+		//se hace el intercambio
+		int temp_1 = arr_1[min_idx1_1];
+		arr_1[min_idx1_1] = arr_1[c];
+		arr_1[c] = temp_1;
+	}
+}
+
+// Función para realizar la búsqueda lineal en un arreglo de numeros
+int busquedaLineal(int arreglo[], int tamano, int valorBuscado) {
+	for (int i = 0; i < tamano; i++) {
+		if (arreglo[i] == valorBuscado) {
+			return i; // Se encontró el valor, devuelve el índice
+		}
+	}
+	return -1; // No se encontró el valor
+}
+
+
+void seleccion1(int arr1[], int n1) {
+	for (int a = 0; a < n1 - 1; a++) {
+		int min_idx1 = a;
+		for (int b = a + 1; b < n1; b++) {
+			if (arr1[b] < arr1[min_idx1]) {    //para que sea menor a mayor
+				min_idx1 = b;
+			}
+		}
+		//se hace el intercambio
+		int temp1 = arr1[min_idx1];
+		arr1[min_idx1] = arr1[a];
+		arr1[a] = temp1;
+	}
+}
+int main()
+{
+	cout << "Ingrese 10 letras en donde se va abuscar: ";
+	cin >> a1 >> b1 >> c1 >> d1 >> e1 >> f1 >> g1 >> h1 >> i1 >> k1;
+	cout << endl;
+	cout << "Que letra quiere buscar : ";
+	cin >> buscar_1;
+	char arr2[] = { a1,b1,c1,d1,e1,f1,g1,h1,i1,k1 };
+	char n_1 = sizeof(arr2) / sizeof(arr2[0]);
+	seleccion_1( arr2, n_1);
+	cout << endl;
+
+	cout << "el orden de las letras del menor al mayor es: " << endl;
+	for (char c = 0; c < n_1; c++) {
+
+		cout << arr2[c] << endl;
+	}
+	char arreglo_1[] = { a1,b1,c1,d1,e1,f1,g1,h1,i1,k1 };
+	char tamano_1 = sizeof(arreglo_1) / sizeof(arreglo_1[0]);
+	char valor_1 = buscar_1;
+	char resultado_1 = busquedaLineal_1(arr2, tamano_1, valor_1);
+	cout << endl;
+
+	if (resultado_1 = buscar_1) {
+		cout << "El valor " << valor_1 << " se encuentra en el indice " << resultado_1 << endl;
+	}
+	else {
+		cout << "El valor " << valor_1 << " no se encuentra en el arreglo" << endl;
+	}
+	cout << endl;
+	// Numeros
+	cout << "Ingrese 10 numeros en donde se va abuscar: ";
+	cin >> a >> b >> c >> d >> e >> f >> g >> h >> i >> j;
+	cout << endl;
+	cout << "Que numero quiere buscar : ";
+	cin >> buscar;
+	int arr1[] = { a,b,c,d,e,f,g,h,i,j };
+	int n1 = sizeof(arr1) / sizeof(arr1[0]);
+	seleccion1(arr1, n1);
+	cout << endl;
+
+	cout << "el orden de los numeros del menor al mayor es: " << endl;
+	for (int a = 0; a < n1; a++) {
+
+		cout << arr1[a] << endl;
+	}
+	int arreglo[] = { a,b,c,d,e,f,g,h,i,j };
+	int tamano = sizeof(arreglo) / sizeof(arreglo[0]);
+	int valor = buscar;
+	int resultado = busquedaLineal(arr1, tamano, valor);
+	cout << endl;
+	if (resultado != -1) {
+		cout << "El valor " << valor << " se encuentra en el indice " << resultado << endl;
+	}
+	else {
+		cout << "El valor " << valor << " no se encuentra en el arreglo" << endl;
+	}
+
+	return 0;
+}
+
+// seleccion ejercicio 1 de la serie 1
+// Jordy Herbert Enrique Cotton Diaz
+#include <iostream>
+using namespace std;
+int a, b, c, d, e, f, g, h, i, j;
+char a1, b1, c1, d1, e1, f1, g1, h1, i1, k1;
+
+void seleccion_1(char arr_1[], char n_1) {
+    for (char a1 = 0; a1 < n_1 - 1; a1++) {
+        char min_idx1_1 = a1;
+        for (char b1 = a1 + 1; b1 < n_1; b1++) {
+            if (arr_1[b1] < arr_1[min_idx1_1]) {    //para que sea menor a mayor
+                min_idx1_1 = b1;
+            }
+        }
+        //se hace el intercambio
+        char temp_1 = arr_1[min_idx1_1];
+        arr_1[min_idx1_1] = arr_1[a1];
+        arr_1[a1] = temp_1;
+    }
+}
+
+void seleccion1(int arr1[], int n1) {
+    for (int a = 0; a < n1 - 1; a++) {
+        int min_idx1 = a;
+        for (int b = a + 1; b < n1; b++) {
+            if (arr1[b] < arr1[min_idx1]) {    //para que sea menor a mayor
+                min_idx1 = b;
+            }
+        }
+        //se hace el intercambio
+        int temp1 = arr1[min_idx1];
+        arr1[min_idx1] = arr1[a];
+        arr1[a] = temp1;
+    }
+}
+
+int main()
+{
+    cout << "ingrese 10 letras en mayuscula: ";
+    cin >> a1 >> b1 >> c1 >> d1 >> e1 >> f1 >> g1 >> h1 >> i1 >> k1;
+    char arr_1[] = { a1,b1,c1,d1,e1,f1,g1,h1,i1,k1 };
+    cout << endl;
+    char n_1 = sizeof(arr_1) / sizeof(arr_1[0]);
+    seleccion_1(arr_1, n_1);
+ 
+    cout << endl;
+    cout << "el orden de las letras desendente a asendente: " << endl;
+    for (char a1 = 0; a1 < n_1; a1++) {
+
+        cout << arr_1[a1] << endl;
+    }
+
+    cout << endl;
+
+    cout << "ingrese 10 numeros: ";
+    cin >> a >> b >> c >> d >> e >> f >> g >> h >> i >> j;
+    int arr1[] = { a,b,c,d,e,f,g,h,i,j };
+    int n1 = sizeof(arr1) / sizeof(arr1[0]);
+    seleccion1(arr1, n1);
+    
+    cout << endl;
+    cout << "el orden de los numeros del menor al mayor es: " << endl;
+    for (int a = 0; a < n1; a++) {
+
+        cout << arr1[a] << endl;
+    }
+}
