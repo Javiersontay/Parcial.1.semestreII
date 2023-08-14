@@ -1,0 +1,208 @@
+//Christian Gerardo Méndez Chaclán
+//Diseña un algoritmo de ordenamiento basado en los enfoques de burbuja y selección. 
+
+#include <iostream>
+#include <string> 
+
+using namespace std;
+// ejercicio 3
+void OrdenamientoOvni(int arg[], int n) {
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arg[j] > arg[j + 1]) {
+                    int temp = arg[j];
+                    arg[j] = arg[j + 1];
+                    arg[j + 1] = temp;
+                }
+            }
+        }
+        for (int i = 0; i < n - 1; i++) {
+            int min_idx = i;
+            for (int j = i + 1; j < n; j++) {
+                if (arg[j] < arg[min_idx]) {
+                    min_idx = j;
+                }
+            }
+            int temp = arg[min_idx];
+            arg[min_idx] = arg[i];
+            arg[i] = temp;
+        }
+
+}
+
+
+void OrdenamientoOvni1(string arg1[], int n) {
+
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arg1[j] > arg1[j + 1]) {
+                    string temp = arg1[j];
+                    arg1[j] = arg1[j + 1];
+                    arg1[j + 1] = temp;
+                }
+            }
+        }   
+        for (int i = 0; i < n - 1; i++) {
+            int min_idx = i;
+            for (int j = i + 1; j < n; j++) {
+                if (arg1[j] < arg1[min_idx]) {
+                    min_idx = j;
+                }
+            }
+            string temp = arg1[min_idx];
+            arg1[min_idx] = arg1[i];
+            arg1[i] = temp;
+        }
+    }
+
+
+
+int main()
+{
+    int arg[10], opc, opc1, opc2;
+    string arg1[10];
+    int n = sizeof(arg) / sizeof(arg[0]);
+
+    cout << "Ingrese una opcion" << endl;
+    cout << "1) numeros" << endl;
+    cout << "2) caracteres" << endl;
+    cin >> opc;
+    system("cls");
+
+    switch (opc)
+    {
+    case 1:
+        cout << "Ingrese 10 valores numericos: " << endl;
+        for (int i = 0; i < 10; i++) {
+            cout << i + 1 << ") ";
+            cin >> arg[i];
+        }
+        cout << endl;
+        for (int i = 0; i < 10; i++) {
+            cout << arg[i] << " - ";
+        }
+        cout << endl;      
+        cout << "Ordenados de menor a mayor Ovni: " << endl;
+
+        OrdenamientoOvni(arg, n);
+        for (int i = 0; i < n; i++) {
+            cout << arg[i] << " - ";
+        }
+
+        break;
+
+    case 2:
+        cout << "Ingrese 10 letras o palabras sin espacios: " << endl;
+        for (int i = 0; i < 10; i++) {
+            cout << i + 1 << ") ";
+            cin >> arg1[i];
+        }
+        cout << endl;
+        for (int i = 0; i < 10; i++) {
+            cout << arg1[i] << " - ";
+        }
+        cout << endl;
+        cout << "Ordenados de menor a mayor Ovni: " << endl;
+        OrdenamientoOvni1(arg1, n);
+        for (int i = 0; i < n; i++) {
+            cout << arg1[i] << " - ";
+        }
+        break;
+    default:
+        cout << "Ya no hay más opciones" << endl;
+        break;
+    }
+
+    return 0;
+}
+
+//Christian Mendez
+//ejercicio 6
+//Diseñar un algoritmo de búsqueda que encuentre todas las ocurrencias de un elemento en un arreglo, y sume a un contador la cantidad de veces que aparece.
+
+#include <iostream>
+#include <string.h>
+
+using namespace std;
+int busquedaGusanin(int arg4[], int t, int search) {
+    for (int i = 0; i < t; i++) {
+        if (arg4[i] == search + 1) {
+            search = search - 1;
+            return i;
+        }
+    }
+    return -1;
+}
+
+
+int main()
+{
+    int arg3[10], search, opca;
+    string arg4[10];
+    string bus[1];
+
+    cout << "Ingrese una opcion" << endl;
+    cout << "1. numeros" << endl;
+    cout << "2. cadenas" << endl;
+    cin >> opca;
+
+    switch (opca)
+    {
+    case 1:
+        cout << "Ingrese 10 numeros enteros: " << endl;
+        cout << endl;
+        for (int i = 0; i < 10; i++) {
+            cout << i + 1 << ") ";
+            cin >> arg3[i];
+        }
+        cout << endl;
+
+        int t = sizeof(arg3) / sizeof(arg3[0]);
+
+        cout << "Ingrese el valor que quiere encontrar: ";
+        cin >> search;
+
+        int resultado = busquedaGusanin(arg3, t, search);
+
+        if (resultado != -1) {
+            cout << "El valor " << search << " se encuentra en el indice " << resultado << endl;
+        }
+        else {
+            cout << "No se encontro ningun valor :(" << endl;
+        }
+        break;
+    case 2:
+        
+        cout << "Ingrese 10 numeros enteros: " << endl;
+        cout << endl;
+        for (int i = 0; i < 10; i++) {
+            cout << i + 1 << ") ";
+            cin >> arg4[i];
+        }
+        cout << endl;
+
+        int t = sizeof(arg4) / sizeof(arg4[0]);
+
+        for (int i = 0; i < 1; i++) {
+            cout << "Ingrese el valor que quiere encontrar: ";
+            cin >> bus[i];
+        }
+        
+        for (int i = 0; i < 1; i++) {
+            for (int j = 0; j < 1; j++) {
+                if (bus[i] == arg4[j]) {
+                    cout << "La letre encontrada es: " << arg4[j] << endl;
+                }
+                else {
+                    cout << "no se encontre :(" << endl;
+                }
+            }
+        }        
+        
+    default:
+
+        break;
+    }
+
+    return 0;
+}
