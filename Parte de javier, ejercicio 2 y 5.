@@ -1,0 +1,197 @@
+#include <iostream>
+using namespace std; 
+
+void insercion(int arr[], int n) {
+	for (int i = 1; i < n; i++) {
+		int key = arr[i];
+		int j = i - 1;
+
+		while (j >= 0 && arr[j] > key) {
+			arr[j + 1] = arr[j];
+			j--;
+		}
+		arr[j + 1] = key;
+	}
+}
+void insercion(string arr[], int nL) {
+	for (int i = 1; i < nL; i++) {
+		string key = arr[i];
+		int j = i - 1;
+
+		while (j >= 0 && arr[j] > key) {
+			arr[j + 1] = arr[j];
+			j--;
+		}
+		arr[j + 1] = key;
+	}
+}
+
+int busquedaBinaria(int arreglo[], int inicio, int fin, int valorBuscado) {
+	if (inicio <= fin) {
+		int medio = inicio + (fin - inicio) / 2;
+		if (arreglo[medio] == valorBuscado) {
+			return medio; 
+		}
+		else if (arreglo[medio] > valorBuscado) {
+			return busquedaBinaria(arreglo, inicio, medio - 1, valorBuscado); 
+		}
+		return busquedaBinaria(arreglo, medio + 1, fin, valorBuscado); 
+	}
+	return -1; 
+}
+
+int busquedaBinaria(string arreglo[], int inicio, int fin, string valorBuscado) {
+	if (inicio <= fin) {
+		int medio = inicio + (fin - inicio) / 2;
+		if (arreglo[medio] == valorBuscado) {
+			return medio; 
+		}
+		else if (arreglo[medio] > valorBuscado) {
+			return busquedaBinaria(arreglo, inicio, medio - 1, valorBuscado); 
+		}
+		return busquedaBinaria(arreglo, medio + 1, fin, valorBuscado); 
+	}
+	return -1; 
+}
+
+int main()
+{
+	int arr2[10];
+	int arr6[10];
+	string ar2[10];
+	string ar5[10];
+	int opcion;
+	int n = sizeof(arr2) / sizeof(arr2[0]);
+	int nL = sizeof(ar2) / sizeof(ar2[0]);
+	int n6 = sizeof(arr6) / sizeof(arr6[0]);
+
+	int valor = 0; 
+	string valor5;
+	int resultado = busquedaBinaria(arr6, 0, n - 1, valor);
+	int resultado5 = busquedaBinaria(ar5, 0, nL - 1, valor5);
+
+	cout << "Elija la opcion\n";
+	cout << ":::ALGORITMO DE ORDENAMIENTO:::\n";
+	cout << "2.Algoritmo de insercion\n";
+	cout << endl; 
+	cout << ":::ALGORITMO DE BUSQUEDA:::\n"; 
+	cout << "5.Busqueda binaria para encontrar un valor especifico en un arreglo ordenado de numeros\n";
+
+	cin >> opcion;
+
+	switch (opcion)
+	{
+	case 2:
+		int op1;
+		cout << "Seleccione una opcion\n";
+		cout << "1.Arreglo Numerico\n";
+		cout << "2.Arreglo de cadena de caracteres\n";
+		cin >> op1;
+
+		switch (op1)
+		{
+		case 1:
+			cout << "INGRESE 10 NUMEROS\n";
+			for (int i = 0; i < 10; i++) {
+				cout << "Ingrese numero: ";
+				cin >> arr2[i];
+			}
+			cout << endl;
+			n;
+			cout << "Arreglo ordenado: \n";
+			insercion(arr2, n);
+			for (int i = 0; i < n; i++) {
+				cout << arr2[i] << endl;
+			}
+			break;
+		case 2:
+			cout << ":::CADENAS DE CARACTERES:::";
+			cout << "INGRESE 10 CARACTERES\n";
+			for (int i = 0; i < 10; i++) {
+				cout << "Ingrese un caracter: ";
+				cin >> ar2[i];
+			}
+			cout << endl;
+			nL;
+			cout << "Arreglo ordenado: \n";
+			insercion(ar2, n);
+			for (int i = 0; i < nL; i++) {
+				cout << ar2[i] << endl;
+			}
+			break;
+		default:
+			break;
+		}
+		break;
+	case 5:
+		int op6;
+		cout << "Seleccione una opcion\n";
+		cout << "1.Arreglo Numerico\n";
+		cout << "2.Arreglo de cadena de caracteres\n";
+		cin >> op6;
+
+		switch (op6)
+		{
+		case 1:
+			cout << "INGRESE 10 NUMEROS\n";
+			for (int i = 0; i < 10; i++) {
+				cout << "Ingrese numero: ";
+				cin >> arr6[i];
+			}
+			cout << endl;
+			n6;
+			cout << "Arreglo ordenado: \n";
+			insercion(arr2, n);
+			for (int i = 0; i < n; i++) {
+				cout << arr6[i] << endl;
+			}
+			cout << endl;
+			cout << "Ingrese el valor que desea buscar: ";
+			cin >> valor;
+
+			resultado = busquedaBinaria(arr6, 0, n - 1, valor);
+			if (resultado != -1) {
+				cout << "El valor " << valor << " se encuentra en el indice " <<
+					resultado << endl;
+			}
+			else {
+				cout << "El valor " << valor << " no se encuentra en el arreglo" <<
+					endl;
+			}
+			break;
+
+		case 2:
+			cout << ":::CADENAS DE CARACTERES:::";
+			cout << "INGRESE 10 CARACTERES\n";
+			for (int i = 0; i < 10; i++) {
+				cout << "Ingrese un caracter: ";
+				cin >> ar5[i];
+			}
+			cout << endl;
+			nL;
+			cout << "Arreglo ordenado: \n";
+			insercion(ar5, n);
+			for (int i = 0; i < nL; i++) {
+				cout << ar5[i] << endl;
+			}
+			cout << endl;
+			cout << "Ingrese el valor que desea buscar: ";
+			cin >> valor5;
+
+			resultado5 = busquedaBinaria(ar5, 0, n - 1, valor5);
+			if (resultado5 != -1) {
+				cout << "El valor " << valor5 << " se encuentra en el indice " <<
+					resultado5 << endl;
+			}
+			else {
+				cout << "El valor " << valor5 << " no se encuentra en el arreglo" <<
+					endl;
+			}
+			break;
+			break;
+		default:
+			break;
+		}
+	}
+	return 0; 
+}
